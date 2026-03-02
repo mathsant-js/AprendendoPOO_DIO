@@ -21,5 +21,15 @@ public class Main {
         // Imprimindo as variáveis estáticas desses objetos
         System.out.println("Espécie: " + Person.specie);
         System.out.println("Quantidade de humanos: " + Person.countHumans);
+
+        // Trabalhando com Record
+        PersonDTO personDTO = new PersonDTO("Lucas", 18);
+
+        // personDTO.name("Marcos"); -> Record trabalha com atributos final, ou seja, imútaveis
+        // System.out.println(personDTO.getName()); -> Record não trabalha desse jeito
+
+        // Imprimindo os dados do DTO
+        System.out.println("Nome: " + personDTO.name() + " | Idade: " + personDTO.age());
+        System.out.println(personDTO.overAge()); // -> Consulta a idade do personDTO
     }
 }
