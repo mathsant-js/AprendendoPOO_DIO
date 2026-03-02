@@ -31,5 +31,8 @@ public class Main {
         // Imprimindo os dados do DTO
         System.out.println("Nome: " + personDTO.name() + " | Idade: " + personDTO.age());
         System.out.println(personDTO.overAge()); // -> Consulta a idade do personDTO
+
+        // Exercício 1
+        // Ainda realizando o exercício 1
     }
 }
