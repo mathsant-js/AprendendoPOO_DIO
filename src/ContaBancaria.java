@@ -47,7 +47,8 @@ public class ContaBancaria {
                         4 - Verificar se está usando cheque especial
                         5 - Consultar o valor disponível de cheque especial
                         6 - Usar cheque especial
-                        7 - Sair do programa
+                        7 - Pagar cheque especial
+                        8 - Sair do programa
                 """
         );
 
@@ -60,7 +61,8 @@ public class ContaBancaria {
             case 4 -> consultarSeUsaChequeEspecial();
             case 5 -> consultarValorChequeEspecial();
             case 6 -> usarChequeEspecial();
-            case 7 -> encerrarPrograma();
+            case 7 -> pagarBoleto();
+            case 8 -> encerrarPrograma();
             default -> System.out.println("Opção inválida!");
         }
     }
@@ -154,11 +156,27 @@ public class ContaBancaria {
     }
 
     private void pagarBoleto() {
-        String[] nomesBoleto = {"Cheque especial", "Conta de agua", "Conta de luz"};
-        float[] valoresBoleto = {getChequeEspecial(), 100.0F, 100.00F};
+        String[] nomesBoleto = {"Cheque especial"}; // Pode adicionar mais boletos para pagar
+        float[] valoresBoleto = {getChequeEspecial()}; // Pode adicionar mais valores de boleto para pagar
         if (isUsandoChequeEspecial()) {
             System.out.println("Pague o cheque especial");
             System.out.println(nomesBoleto[0] + " | Valor à pagar:" + valoresBoleto[0]);
+            System.out.println("Você gostaria de pagar a conta? | 1 - Sim / 2 - Não");
+            int confirmacao = scanner.nextInt();
+            if (confirmacao == 1) {
+                if (getSaldo() < valoresBoleto[0]) {
+                    System.out.println("Não há valor disponível para pagar a conta!");
+                    mostrarOperacoes();
+                } else {
+                    saldo -= valoresBoleto[0];
+                    setUsandoChequeEspecial(false);
+                    System.out.println("Conta paga com sucesso!");
+                    mostrarOperacoes();
+                }
+            } else {
+                System.out.println("Operação cancelada!");
+                mostrarOperacoes();
+            }
         }
     }
 
