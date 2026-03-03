@@ -1,5 +1,3 @@
-import java.util.Scanner;
-
 public class Main {
     public static void main(String[] args) {
         // Criando objetos com argumentos
@@ -35,8 +33,15 @@ public class Main {
         System.out.println(personDTO.overAge()); // -> Consulta a idade do personDTO
 
         // Exercício 1
+
+        /*
         System.out.println("OLÁ - BEM VINDO À SUA CONTA BANCÁRIA");
         ContaBancaria contaBancaria = new ContaBancaria(200);
         contaBancaria.mostrarOperacoes();
+        */
+
+        // Exercício 2
+        Carro carro = new Carro();
+        carro.mostrarOpcoesCarro();
     }
 }
